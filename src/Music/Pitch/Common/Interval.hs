@@ -394,12 +394,12 @@ invert = simple . negate
 mkInterval :: Quality -> Number -> Interval
 mkInterval q n = mkInterval' (fromIntegral diff) (fromIntegral steps)
   where
-    diff  = qualityToDiff (n > 0) (expectedQualityType n) (q)
+    Just diff  = qualityToAlteration (if n > 0 then Upward else Downward)
+                                     (expectedQualityType n) q
     steps = case n `compare` 0 of
       GT -> n - 1
       EQ -> error "diatonicSteps: Invalid number 0"
       LT -> n + 1
-    -- steps = n^.diatonicSteps
 
 
 
@@ -428,8 +428,10 @@ interval = iso (uncurry mkInterval) (\x -> (quality x, number x))
 
 -- | View an interval as a pair of alteration and diatonic steps or vice versa.
 interval' :: Iso' (ChromaticSteps, DiatonicSteps) Interval
-interval' = iso (\(d,s) -> mkInterval' (fromIntegral d) (fromIntegral s)) 
-  (\x -> (qualityToDiff (number x >= 0) (expectedQualityType (number x)) (quality x), (number x)^.diatonicSteps))
+interval' = iso (\(d,s) -> mkInterval' (fromIntegral d) (fromIntegral s))
+  (\x -> ( fromJust (qualityToAlteration (if number x >= 0 then Upward else Downward)
+                                         (expectedQualityType (number x)) (quality x))
+         , (number x)^.diatonicSteps))
 
 -- | View an interval as a pair of total number of chromatic and diatonic steps.
 interval'' :: Iso' (ChromaticSteps, DiatonicSteps) Interval
