@@ -48,7 +48,7 @@ import TypeUnary.Nat
 
 -- Based on Data.Fixed
 
-newtype Equal a = Equal { getEqual :: Int }
+newtype Equal a = Equal { getEqual :: Int }
 
 deriving instance Eq (Equal a)
 deriving instance Ord (Equal a)
@@ -104,11 +104,11 @@ size = natToZ . getSize
 -- This type implements limited values (useful for interval *steps*)
 -- An ET-interval is just an int, with a type-level size (divMod is "separate")
 
--- -- | Create an equal-temperament value.
+-- -- | Create an equal-temperament value.
 -- toEqual :: IsNat a => Int -> Maybe (Equal a)
 -- toEqual = checkSize . Equal
 -- 
--- -- | Unsafely create an equal-temperament value.
+-- -- | Unsafely create an equal-temperament value.
 -- unsafeToEqual :: IsNat a => Int -> Equal a
 -- unsafeToEqual n = case toEqual n of
 --   Nothing -> error $ "Bad equal: " ++ show n
@@ -118,7 +118,7 @@ size = natToZ . getSize
 -- checkSize x = if 0 <= fromEqual x && fromEqual x < size x then Just x else Nothing
 -- 
 
--- | Create an equal-temperament value.
+-- | Create an equal-temperament value.
 toEqual :: IsNat a => Int -> Equal a
 toEqual = Equal
 

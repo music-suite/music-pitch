@@ -1,5 +1,5 @@
 
--- | Standard pitch representation.
+-- | Standard pitch representation.
 module Music.Pitch (
         module Data.Semigroup,
         module Data.VectorSpace,

@@ -80,7 +80,7 @@ import Music.Pitch.Literal
 import Music.Pitch.Common hiding (Mode)
 
 
--- | A mode is a list of intervals and a characteristic repeating interval. 
+-- | A mode is a list of intervals and a characteristic repeating interval.
 data Mode a = Mode [Diff a] (Diff a) -- intervals, repeat (usually octave)
 
 -- |
@@ -98,7 +98,7 @@ modeIntervals f (Mode is r) = fmap (\is -> Mode is r) $ f is
 modeRepeat :: Lens' (Mode a) (Diff a)
 modeRepeat f (Mode is r) = fmap (\r -> Mode is r) $ f r
 
--- | A scale is a mode with a specified tonic.
+-- | A scale is a mode with a specified tonic.
 data Scale a = Scale a (Mode a)      -- root, mode
 
 modeToScale :: AffineSpace a => a -> Mode a -> Scale a
@@ -107,12 +107,12 @@ modeToScale = Scale
 -- |
 -- > Lens' (Scale Pitch) Pitch
 scaleTonic :: Lens' (Scale a) a
-scaleTonic f (Scale t xs) = fmap (\t -> Scale t xs) $ f t
+scaleTonic f (Scale t xs) = fmap (\t -> Scale t xs) $ f t
 
 -- |
 -- > Lens' (Scale Pitch) (Mode Pitch)
 scaleMode :: Lens' (Scale a) (Mode a)
-scaleMode f (Scale t xs) = fmap (\xs -> Scale t xs) $ f xs
+scaleMode f (Scale t xs) = fmap (\xs -> Scale t xs) $ f xs
 
 -- |
 --
@@ -168,12 +168,12 @@ functionToChord = Chord
 -- |
 -- > Lens' (Chord Pitch) Pitch
 chordTonic :: Lens' (Chord a) a
-chordTonic f (Chord t xs) = fmap (\t -> Chord t xs) $ f t
+chordTonic f (Chord t xs) = fmap (\t -> Chord t xs) $ f t
 
 -- |
 -- > Lens' (Chord Pitch) (Function Pitch)
 chordFunction :: Lens' (Chord a) (Function a)
-chordFunction f (Chord t xs) = fmap (\xs -> Chord t xs) $ f xs
+chordFunction f (Chord t xs) = fmap (\xs -> Chord t xs) $ f xs
 
 -- |
 --
