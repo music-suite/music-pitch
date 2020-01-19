@@ -1,4 +1,5 @@
 dist
+dist-newstyle
 .DS_Store
 *.ly
 *.pdf
@@ -6,3 +7,8 @@ dist
 .hackette
 .ackoptions
 *sandbox.config
+.stack-work/
+.cabal.project.local
+.cabal.project.local~
+.envrc
+.direnv
