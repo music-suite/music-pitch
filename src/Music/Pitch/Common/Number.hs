@@ -1,5 +1,5 @@
 
--- | Number component of intervals.
+-- | Number component of intervals.
 module Music.Pitch.Common.Number
 (
         Number,

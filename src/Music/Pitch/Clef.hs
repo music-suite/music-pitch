@@ -67,7 +67,7 @@ instance Show Clef where
     | x == altoClef         = "altoClef"
     | x == tenorClef        = "tenorClef"
     | x == baritoneClef     = "baritoneClef"
-    | otherwise             = show a
+    | otherwise             = show a
     
 -- | Return the English name of the given clef.
 symbolName :: ClefSymbol -> String
@@ -77,7 +77,7 @@ symbolName FClef       = "F clef"
 symbolName PercClef    = "Percussion clef"
 symbolName NeutralClef = "Neutral clef"
 
--- | Return the pitch implied by the given clef at the middle space or line.
+-- | Return the pitch implied by the given clef at the middle space or line.
 symbolPitch :: ClefSymbol -> Maybe Pitch
 symbolPitch GClef = Just b'
 symbolPitch CClef = Just c
@@ -118,17 +118,17 @@ Map this to Pitch.Common
 
 -- | Standard treble clef.
 trebleClef :: Clef
--- | Standard bass clef.
+-- | Standard bass clef.
 bassClef :: Clef
--- | Standard soprano clef.
+-- | Standard soprano clef.
 sopranoClef :: Clef
--- | Standard mezzo soprano clef.
+-- | Standard mezzo soprano clef.
 mezzoSopranoClef :: Clef
--- | Standard alto clef.
+-- | Standard alto clef.
 altoClef :: Clef
--- | Standard tenor clef.
+-- | Standard tenor clef.
 tenorClef :: Clef
--- | Standard baritone clef.
+-- | Standard baritone clef.
 baritoneClef :: Clef
 trebleClef        = Clef (GClef, -1 :: ClefOctave, -1 :: ClefLine)
 bassClef          = Clef (FClef, 1  :: ClefOctave, -1 :: ClefLine)
@@ -140,11 +140,11 @@ baritoneClef      = Clef (CClef, 0  :: ClefOctave, 2  :: ClefLine)
 
 -- | Is this a clef used in contemporary notation?
 isModernClef :: Clef -> Bool
-isModernClef x | x == trebleClef  = True
-isModernClef x | x == bassClef    = True
-isModernClef x | x == altoClef    = True
-isModernClef x | x == tenorClef   = True
-isModernClef x | otherwise        = False
+isModernClef x | x == trebleClef  = True
+isModernClef x | x == bassClef    = True
+isModernClef x | x == altoClef    = True
+isModernClef x | x == tenorClef   = True
+isModernClef x | otherwise        = False
 
 -- | Is this an historical clef?
 isHistoricalClef :: Clef -> Bool
@@ -152,8 +152,8 @@ isHistoricalClef _ = False
 
 -- | Is this a traditional voice clef, i.e. a C clef on some staff.
 isVoiceClef :: Clef -> Bool
-isVoiceClef x | x == altoClef    = True
-isVoiceClef x | x == tenorClef   = True
-isVoiceClef x | otherwise        = False
+isVoiceClef x | x == altoClef    = True
+isVoiceClef x | x == tenorClef   = True
+isVoiceClef x | otherwise        = False
 
 

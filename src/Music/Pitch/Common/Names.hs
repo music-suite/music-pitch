@@ -42,7 +42,7 @@ showKey :: Language -> Pitch -> Mode -> String
 showKey lang pitch mode = showPitch lang pitch ++ showSep lang ++ showMode lang mode
 
 showPitch :: Language -> Pitch -> String
-showPitch lang pitch = (!! (pitchToIndex + pitchNameOffset)) $ fromMaybe (error "showPitch: Bad lang") $ listToMaybe $ filter (\xs -> head xs == show lang) $ pitchNames
+showPitch lang pitch = (!! (pitchToIndex + pitchNameOffset)) $ fromMaybe (error "showPitch: Bad lang") $ listToMaybe $ filter (\xs -> head xs == show lang) $ pitchNames
   where
     -- TODO normalize dbb etc.
     pitchToIndex = fromMaybe (error "showPitch: Bad pitch") $ Data.List.findIndex (== pitch) 
@@ -56,7 +56,7 @@ showPitch lang pitch = (!! (pitchToIndex + pitchNameOffset)) $ fromMaybe (error 
     pitchNameOffset = 3
 
 showMode :: Language -> Mode -> String
-showMode lang mode = (!! (modeToIndex + modeNameOffset)) $ fromMaybe (error "showMode: Bad lang") $ listToMaybe $ filter (\xs -> head xs == show lang) $ modeNames
+showMode lang mode = (!! (modeToIndex + modeNameOffset)) $ fromMaybe (error "showMode: Bad lang") $ listToMaybe $ filter (\xs -> head xs == show lang) $ modeNames
   where
     modeToIndex = fromMaybe (error "showPitch: Bad mode") $ Data.List.findIndex (== mode) 
       [MajorMode,MinorMode]     

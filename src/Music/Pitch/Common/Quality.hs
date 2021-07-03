@@ -105,7 +105,7 @@ invertQuality = go
     go (Diminished n)   = Augmented n
 
 
--- | 
+-- | 
 -- The quality type expected for a given number, i.e. perfect for unisons, fourths,
 -- fifths and their compounds; major/minor for everything else.  
 expectedQualityType :: Number -> QualityType
@@ -127,7 +127,7 @@ qualityTypes _       = [PerfectType, MajorMinorType]
 isValidQualityNumber :: Quality -> Number -> Bool
 isValidQualityNumber q n = expectedQualityType n `elem` qualityTypes q
 
-data Direction = Upward | Downward
+data Direction = Upward | Downward
   deriving (Eq, Ord, Show)
 
 -- |

@@ -145,7 +145,7 @@ instance FromJSON ChromaticSteps where
   parseJSON = fmap fromInteger . parseJSON
 
 instance ToJSON Interval where
-  toJSON i = Data.Aeson.object [("steps", toJSON $ i^._steps), ("alteration", toJSON $ i^._alteration)]
+  toJSON i = Data.Aeson.object [("steps", toJSON $ i^._steps), ("alteration", toJSON $ i^._alteration)]
 
 instance FromJSON Interval where
   parseJSON (Data.Aeson.Object x) = liftA2 (curry (^.interval')) alteration steps

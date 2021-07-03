@@ -83,10 +83,10 @@ Alternatively, we could do it as a recursive type
 
 data Quality
   = Major
-  | Minor
-  | Perfect
+  | Minor
+  | Perfect
   | Augment Quality
-  | Diminish Quality
+  | Diminish Quality
 -}
 
 {-|

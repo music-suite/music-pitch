@@ -21,7 +21,7 @@ import qualified Data.Set as Set
 {-
   TODO
   Generalize simple like this:
-    > (number (asInterval (m9))-(fromIntegral $ signum (m9))) `mod` 7
+    > (number (asInterval (m9))-(fromIntegral $ signum (m9))) `mod` 7
     
 -}
 

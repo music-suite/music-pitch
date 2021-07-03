@@ -112,7 +112,7 @@ thirtyOneToneEqual = tetTune dddd3 where dddd3 = m3 ^-^ (4 *^ _A1)
 fiftyThreeToneEqual :: Tuning Interval
 fiftyThreeToneEqual = tetTune ddddddd6 where ddddddd6 = 31 *^ _P8 ^-^ 53 *^ _P5 -- (!)
 
--- | Modern standard intonation, i.e. 12-TET with @a = 440 Hz@.
+-- | Modern standard intonation, i.e. 12-TET with @a = 440 Hz@.
 standardIntonation :: Intonation Pitch
 standardIntonation = intone (a, 440) twelveToneEqual
 
